@@ -3,6 +3,7 @@ package jp._5000164.libgdx_pyramid
 import com.badlogic.gdx.graphics.g2d.{BitmapFont, SpriteBatch}
 import com.badlogic.gdx.graphics.{Color, GL20}
 import com.badlogic.gdx.{Game, Gdx}
+import jp._5000164.libgdx_pyramid.models.Pyramid
 
 class View extends Game {
   var batch: SpriteBatch = _
@@ -24,7 +25,15 @@ class View extends Game {
     Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 
     batch.begin()
-    font.draw(batch, "Hello World", 200, 200)
+
+    val pyramid = Pyramid(3)
+    val x = 10f
+    var y = 400f
+    for (line <- pyramid.render()) {
+      font.draw(batch, line, x, y)
+      y -= 10
+    }
+
     batch.end()
   }
 }
