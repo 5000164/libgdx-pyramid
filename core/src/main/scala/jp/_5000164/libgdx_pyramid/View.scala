@@ -26,7 +26,7 @@ class View extends Game {
 
     batch.begin()
 
-    val pyramid = Pyramid(3)
+    val pyramid = Pyramid(10)
     val x = 10f
     var y = 400f
     for (line <- pyramid.render()) {
